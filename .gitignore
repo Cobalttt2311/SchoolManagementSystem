@@ -1,0 +1,43 @@
+# Dependencies
+/packages/
+/node_modules/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+/build/
+/Build/
+/build-results/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code specific
+.vscode/
+
+# Visual Studio specific
+.vs/
+/TestResults/
+*.DotSettings.user
+
+# Rider specific
+.idea/
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# OS generated files
+# Windows
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
