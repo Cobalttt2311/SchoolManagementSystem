@@ -25,6 +25,7 @@ public class StudentsController : ControllerBase
         return Ok(students);
     }
 
+
     [HttpGet("{id:guid}")]
     [Authorize(Roles = "Admin,Teacher")] // Hanya Admin & Teacher yang bisa lihat detail siswa
     public async Task<IActionResult> GetStudentById(Guid id)

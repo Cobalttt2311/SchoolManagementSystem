@@ -5,10 +5,11 @@ namespace SchoolManagementSystem.Data;
 
 public static class DbSeeder
 {
-    public static async Task SeedRolesAndAdminAsync(IServiceProvider service)
+    public static async Task SeedRolesAndAdminAsync(IServiceProvider serviceProvider)
     {
-        var userManager = service.GetService<UserManager<ApplicationUser>>();
-        var roleManager = service.GetService<RoleManager<IdentityRole>>();
+        // Gunakan GetRequiredService untuk memastikan service tidak null
+        var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
         
         string[] roles = { "Admin", "Teacher", "Student" };
         foreach (var roleName in roles)
@@ -19,7 +20,6 @@ public static class DbSeeder
             }
         }
 
-        // Membuat Admin User
         var adminEmail = "admin@school.com";
         if (await userManager.FindByEmailAsync(adminEmail) == null)
         {

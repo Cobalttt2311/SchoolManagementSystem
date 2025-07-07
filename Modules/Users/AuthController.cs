@@ -17,20 +17,18 @@ namespace SchoolManagementSystem.Modules.Users;
 public class AuthController : ControllerBase
 {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly RoleManager<IdentityRole> _roleManager;
+
     private readonly IConfiguration _configuration;
     private readonly ITeacherRepository _teacherRepository;
     private readonly IStudentRepository _studentRepository;
 
     public AuthController(
         UserManager<ApplicationUser> userManager,
-        RoleManager<IdentityRole> roleManager,
         IConfiguration configuration,
         ITeacherRepository teacherRepository,
         IStudentRepository studentRepository)
     {
         _userManager = userManager;
-        _roleManager = roleManager;
         _configuration = configuration;
         _teacherRepository = teacherRepository;
         _studentRepository = studentRepository;

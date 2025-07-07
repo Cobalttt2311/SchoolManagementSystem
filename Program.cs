@@ -11,9 +11,9 @@ using SchoolManagementSystem.Middlewares;
 using SchoolManagementSystem.Data;
 using Microsoft.AspNetCore.Identity; 
 using SchoolManagementSystem.Modules.Users.Entities;
-using Microsoft.AspNetCore.Authentication.JwtBearer; // <-- Tambahkan ini
-using Microsoft.IdentityModel.Tokens; // <-- Tambahkan ini
-using System.Text; // <-- Tambahkan ini
+using Microsoft.AspNetCore.Authentication.JwtBearer; 
+using Microsoft.IdentityModel.Tokens; 
+using System.Text; 
 
 // Muat variabel dari file .env di awal aplikasi
 DotNetEnv.Env.Load();
@@ -31,9 +31,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-// =================================================================
-// == TAMBAHKAN BLOK INI UNTUK KONFIGURASI JWT AUTHENTICATION ==
-// =================================================================
+// Konfigurasi JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -53,11 +51,8 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!))
     };
 });
-// =================================================================
 
-// =================================================================
-// == TAMBAHKAN BLOK INI UNTUK MENGATASI REDIRECT ==
-// =================================================================
+// Mengatasi redirect otomatis untuk API
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Events.OnRedirectToLogin = context =>
@@ -71,7 +66,6 @@ builder.Services.ConfigureApplicationCookie(options =>
         return Task.CompletedTask;
     };
 });
-// =================================================================
 
 // Mendaftarkan services Controller
 builder.Services.AddControllers();
@@ -116,8 +110,8 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// app.UseHttpsRedirection();
 
 app.MapControllers();
 
-app.Run();
+// Jalankan aplikasi secara asynchronous
+await app.RunAsync();

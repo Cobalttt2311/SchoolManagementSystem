@@ -50,12 +50,12 @@ public class EnrollmentService : IEnrollmentService
     public async Task<List<EnrollmentResponse>> GetMyEnrollmentsAsync()
     {
         var userId = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
-        _logger.LogInformation("Mencoba mengambil data untuk User ID dari token: {UserId}", userId);
+        _logger.LogDebug("Mencoba mengambil data untuk User ID dari token: {UserId}", userId);
         if (userId is null) return new List<EnrollmentResponse>();
 
         var user = await _userManager.FindByIdAsync(userId);
         var studentId = user?.StudentId;
-        _logger.LogInformation("Profil user ditemukan, Student ID yang tertaut: {StudentId}", studentId);
+        _logger.LogDebug("Profil user ditemukan, Student ID yang tertaut: {StudentId}", studentId);
 
         if (!studentId.HasValue)
         {
