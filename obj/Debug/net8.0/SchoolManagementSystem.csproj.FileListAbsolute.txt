@@ -148,3 +148,4 @@ D:\Kerja Praktik\Eksplorasi\SchoolManagementSystem\bin\Debug\net8.0\Microsoft.Id
 D:\Kerja Praktik\Eksplorasi\SchoolManagementSystem\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Kerja Praktik\Eksplorasi\SchoolManagementSystem\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\Kerja Praktik\Eksplorasi\SchoolManagementSystem\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Kerja Praktik\Eksplorasi\SchoolManagementSystem\obj\Debug\net8.0\SchoolManagementSystem.sourcelink.json

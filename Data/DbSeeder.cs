@@ -7,11 +7,9 @@ public static class DbSeeder
 {
     public static async Task SeedRolesAndAdminAsync(IServiceProvider service)
     {
-        // Mendapatkan service yang dibutuhkan
         var userManager = service.GetService<UserManager<ApplicationUser>>();
         var roleManager = service.GetService<RoleManager<IdentityRole>>();
         
-        // Membuat Roles
         string[] roles = { "Admin", "Teacher", "Student" };
         foreach (var roleName in roles)
         {
@@ -31,7 +29,6 @@ public static class DbSeeder
                 Email = adminEmail,
                 EmailConfirmed = true
             };
-            // Pastikan Anda menggunakan password yang kuat di dunia nyata
             await userManager.CreateAsync(adminUser, "Admin@123");
             await userManager.AddToRoleAsync(adminUser, "Admin");
         }

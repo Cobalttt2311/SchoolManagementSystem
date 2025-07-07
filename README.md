@@ -69,7 +69,7 @@ Akses Terbatas:
 ### 1\. Clone Repositori
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/Cobalttt2311/SchoolManagementSystem.git
 cd your-repository
 ```
 
